@@ -1,0 +1,35 @@
+#$schema: https://json.schemastore.org/catalog-info.json
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: djdevops-app
+  annotations:
+    github.com/project-slug: djajcevic/djdevops-app-acs
+    backstage.io/environment: dev
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/name=djdevops-app-bff'
+  tags:
+    - java
+  links:
+    - url: djdevops-app.apps.idp.dhl.com/api
+      title: API
+      icon: star
+spec:
+  type: service
+  lifecycle: development
+  owner: djdevops-app
+  system: djdevops-app
+  dependsOn:
+    - component:default/djdevops-app-acr
+  providesApis:
+    - djdevops-app
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: djdevops-app
+spec:
+  type: rest
+  lifecycle: deprecated
+  owner: djdevops-app
+  definition:
+    $text: djdevops-app.apps.idp.dhl.com/api-docs
