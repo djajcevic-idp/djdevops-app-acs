@@ -11,7 +11,7 @@ metadata:
   tags:
     - java
   links:
-    - url: djdevops-app.apps.idp.dhl.com/api
+    - url: https://djdevops-app.apps.idp.dhl.com/api
       title: API
       icon: star
 spec:
@@ -33,4 +33,4 @@ spec:
   lifecycle: deprecated
   owner: demo-team
   definition:
-    $text: djdevops-app.apps.idp.dhl.com/api-docs
+    $text: https://djdevops-app.apps.idp.dhl.com/api-docs
