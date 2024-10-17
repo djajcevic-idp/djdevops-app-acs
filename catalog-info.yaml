@@ -17,8 +17,8 @@ metadata:
 spec:
   type: service
   lifecycle: development
-  owner: djdevops-app
-  system: djdevops-app
+  owner: demo-team
+  system: demo
   dependsOn:
     - component:default/djdevops-app-acr
   providesApis:
@@ -31,6 +31,6 @@ metadata:
 spec:
   type: rest
   lifecycle: deprecated
-  owner: djdevops-app
+  owner: demo-team
   definition:
     $text: djdevops-app.apps.idp.dhl.com/api-docs
