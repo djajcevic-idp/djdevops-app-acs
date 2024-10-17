@@ -7,7 +7,7 @@ metadata:
     github.com/project-slug: djajcevic-idp/djdevops-app-acs
     backstage.io/environment: dev
     'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/name=djdevops-app-bff'
-    sonarqube.org/project-key: djdevops-app-bff
+    sonarqube.org/project-key: com.example:djdevops-app
   tags:
     - java
   links:
