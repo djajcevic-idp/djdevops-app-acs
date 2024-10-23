@@ -27,6 +27,8 @@ public class DemoController {
 
     private final UserRepo userRepo;
 
+    private final String SECRET = "12345";
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -40,9 +42,8 @@ public class DemoController {
     }
 
     @GetMapping("/unsecure")
-    public String hello(@RequestParam String username, @RequestParam String password) {
-        LOG.info("password " + password);
-        return "Hello " + username + " " + password;
+    public String hello(@RequestParam String username) {
+        return SECRET;
     }
 
 }
