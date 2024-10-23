@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.ResultSet;
@@ -21,6 +22,9 @@ public class DemoController {
 
     private final UserRepo userRepo;
 
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+
     public DemoController(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
@@ -28,6 +32,12 @@ public class DemoController {
     @GetMapping("/users")
     public List<User> test() {
         return userRepo.findAll();
+    }
+
+    @GetMapping("/sqlInjection")
+    public String hello(@RequestParam String name) {
+        String sql = "SELECT message FROM greetings WHERE name = '" + name + "'";
+        return jdbcTemplate.queryForObject(sql, String.class);
     }
 
 }
