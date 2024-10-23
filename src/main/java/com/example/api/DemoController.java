@@ -6,28 +6,22 @@ import com.example.repo.UserRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 @RestController
 @SuppressFBWarnings("SPRING_ENDPOINT")
 public class DemoController {
 
-
     private static Logger LOG = LoggerFactory.getLogger(DemoController.class);
 
     private final UserRepo userRepo;
 
-    private final String SECRET = "12345";
+    private final String PASSWORD = "12345";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -43,7 +37,7 @@ public class DemoController {
 
     @GetMapping("/unsecure")
     public String hello(@RequestParam String username) {
-        return SECRET;
+        return PASSWORD;
     }
 
 }
