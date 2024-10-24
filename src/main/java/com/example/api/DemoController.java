@@ -21,7 +21,7 @@ public class DemoController {
 
     private final UserRepo userRepo;
 
-    private final String PASSWORD = "12345";
+    private final String PASSWORD = "123456";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
